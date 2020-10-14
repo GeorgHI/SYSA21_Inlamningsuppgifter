@@ -31,7 +31,6 @@ public class PersonRegisterTest {
         p2.addAccount(a4);
 
 
-
         personRegister.addPerson(p1);
         personRegister.addPerson(p2);
 
@@ -41,7 +40,6 @@ public class PersonRegisterTest {
         System.out.println(personRegister.totBalancePerson("2"));
         personRegister.removePerson("1");
         System.out.println(personRegister.findPerson("1"));
-
 
     }
 }
