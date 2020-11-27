@@ -7,6 +7,12 @@ public class PersonRegister {
         this.persons = new LinkedList<Person>();
     }
 
+    public LinkedList<Person> getPersons()
+    {
+        return persons;
+    }
+
+
     public void addPerson (Person p){
         persons.add(p);
     }

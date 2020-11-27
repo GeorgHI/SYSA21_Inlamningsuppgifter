@@ -4,21 +4,22 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class AccountModel {
     private SimpleStringProperty nbr;
-    private SimpleDoubleProperty balance;
+    private SimpleStringProperty balance;
     private SimpleStringProperty name;
 
     public AccountModel(String nbr, double balance, String name){
         this.nbr = new SimpleStringProperty(nbr);
-        this.balance = new SimpleDoubleProperty(balance);
+        this.balance = new SimpleStringProperty(String.valueOf(balance));
         this.name = new SimpleStringProperty(name);
     }
 
+
     public double getBalance() {
-        return balance.get();
+        return Double.parseDouble(String.valueOf(balance));
     }
 
     public void setBalance(double balance) {
-        this.balance = new SimpleDoubleProperty(balance);
+        this.balance = new SimpleStringProperty(String.valueOf(balance));
     }
 
     public void setName(String name) {

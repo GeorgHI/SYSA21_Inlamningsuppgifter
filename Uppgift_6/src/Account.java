@@ -28,7 +28,5 @@ public class Account {
     public void credit(Double amount){
         setBalance(amount + balance);
     }
-    public void withdraw(Double amount){
-        setBalance(balance - amount);
-    }
+    public void withdraw(Double amount) { if(!(amount>balance)) balance -= amount; }
 }
