@@ -82,6 +82,7 @@ public class Controller implements Initializable {
     }
 
     //Metod för att söka
+    //fixa felmeddelande
     @FXML
     public void btnSearch_Click(ActionEvent event){
         String searchTerm = txtSearchBox.getText();
