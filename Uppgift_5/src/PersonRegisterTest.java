@@ -16,7 +16,6 @@ public class PersonRegisterTest {
         a2.setOwner(p1);
         p1.addAccount(a2);
 
-
         Person p2 = new Person("2", "Eva");
         Account a3 = new Account();
         a3.setBalance(2500.0);
@@ -30,7 +29,6 @@ public class PersonRegisterTest {
         a4.setOwner(p2);
         p2.addAccount(a4);
 
-
         personRegister.addPerson(p1);
         personRegister.addPerson(p2);
 
@@ -40,6 +38,6 @@ public class PersonRegisterTest {
         System.out.println(personRegister.totBalancePerson("2"));
         personRegister.removePerson("1");
         System.out.println(personRegister.findPerson("1"));
-
+        //fler kommentarer, testa withdraw/credit
     }
 }

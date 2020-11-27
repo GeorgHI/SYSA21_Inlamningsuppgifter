@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class PersonRegister {
@@ -11,7 +10,6 @@ public class PersonRegister {
     public void addPerson (Person p){
         persons.add(p);
     }
-
     public Person findPerson(String pNbr){
         for ( Person p : persons){
             if(p.getpNbr().equals(pNbr)) return p;
@@ -46,4 +44,5 @@ public class PersonRegister {
         }
         return sum;
     }
+
 }

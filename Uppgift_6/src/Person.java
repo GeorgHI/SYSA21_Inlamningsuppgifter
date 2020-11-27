@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Person
@@ -21,11 +20,9 @@ public class Person
     public String getpNbr(){
         return pNbr;
     }
-
     public void addAccount(Account a){
         accounts.add(a);
     }
-
     public Account findAccount(String accountNbr){
         for(Account a : accounts){
             if(a.getNbr().equals(accountNbr)) return a;
@@ -39,4 +36,5 @@ public class Person
         }
         return sum;
     }
+
 }

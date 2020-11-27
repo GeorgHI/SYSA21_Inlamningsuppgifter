@@ -3,10 +3,11 @@ import java.util.Scanner;
 public class IntComp {
     public static void main (String[] args){
 
-        while(true) {
+        int num1 = 1;
+        while(num1 != 0) {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Skriv in det första talet: ");
-            int num1 = scanner.nextInt();
+            num1 = scanner.nextInt();
 
            if(num1 == 0) break;
 
