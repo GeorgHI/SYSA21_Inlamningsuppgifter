@@ -1,21 +1,20 @@
-import javafx.beans.property.SimpleDoubleProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
+//Klass för att definera datamodellen i tabellen.
 public class AccountModel {
     private SimpleStringProperty nbr;
     private SimpleStringProperty balance;
     private SimpleStringProperty name;
 
-    public AccountModel(String nbr, double balance, String name){
+    public AccountModel(String nbr, String balance, String name){
         this.nbr = new SimpleStringProperty(nbr);
-        this.balance = new SimpleStringProperty(String.valueOf(balance));
+        this.balance = new SimpleStringProperty(balance);
         this.name = new SimpleStringProperty(name);
     }
 
 
-    public double getBalance() {
-        return Double.parseDouble(String.valueOf(balance));
+    public String getBalance() {
+        return balance.get();
     }
 
     public void setBalance(double balance) {
