@@ -8,20 +8,15 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
-
 
 public class Controller implements Initializable {
 
     //Skapa en lista för tabellen i gränsnittet och ett personregister
     private ObservableList<AccountModel> accountModels = FXCollections.observableArrayList();
     private PersonRegister personRegister = new PersonRegister();
-    DecimalFormat df = new DecimalFormat("#.00");
-
 
     //Deklarerar object från gränssnittet
     @FXML
@@ -51,14 +46,13 @@ public class Controller implements Initializable {
     @FXML
     private Label tableLabel = new Label("Search for a personal number to populate the table.");
 
-
     //Metod som anropas när man tycker på Addknappen i manage person panelen
     @FXML
     public void btnPersonAdd_Click(ActionEvent event) {
         String pName = txtNameInput.getText();
         String pNumber = txtPNbrInput.getText();
 
-        //check to see if Person exists or the pNumber textfield is empty
+        //kollar om personen finner och om inmatingsfältet för personnummer är tommt
         if (personRegister.findPerson(pNumber) == null && !pNumber.equals("")) {
             Person person = new Person(pNumber, pName);
             personRegister.addPerson(person);
@@ -71,9 +65,9 @@ public class Controller implements Initializable {
     @FXML
     public void btnPersonRemove_Click(ActionEvent event) {
         String pNumber = txtPNbrInput.getText();
-        //check to see if Person exists
+        //kollar om personen finns
         if (personRegister.removePerson(pNumber) == null) {
-            lblResponse.setText("No person with the personal number " + pNumber + "exists.");
+            lblResponse.setText("No person with the personal number " + pNumber + " exists.");
         } else {
             personRegister.removePerson(pNumber);
             lblResponse.setText("Person removed successfully!");
@@ -152,6 +146,7 @@ public class Controller implements Initializable {
         String pNbr = txtSearchBox.getText();
         String accountNbr = txtNewAccountNbrInput.getText();
 
+        //kolla om kontonummret redan används
         for (Person p : personRegister.getPersons()) {
             for (Account a : p.getAccounts()) {
                 if (a.getNbr().equals(accountNbr)) {
@@ -160,7 +155,6 @@ public class Controller implements Initializable {
                 }
             }
         }
-
         Account account = new Account();
         account.setNbr(accountNbr);
         account.setBalance(0.0);
@@ -168,17 +162,16 @@ public class Controller implements Initializable {
         personRegister.findPerson(pNbr).addAccount(account);
         lblAccount.setText("Account added successfully!");
         updateTable();
-
     }
 
-
-    //kolla upp vad detta gör
+    //metod som körs en gång i början av programmet
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        //instansierar kolumner i tabellen
         colName.setCellValueFactory(new PropertyValueFactory<>("Name"));
         colNbr.setCellValueFactory(new PropertyValueFactory<>("Nbr"));
         colBalance.setCellValueFactory(new PropertyValueFactory<>("Balance"));
-
+        //sätter texten i tabellen
         tblAccounts.setPlaceholder(tableLabel);
     }
 }

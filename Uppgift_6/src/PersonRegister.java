@@ -41,6 +41,7 @@ public class PersonRegister {
         }
         return null;
     }
+    //sammanställer det totala saldot hos en person
     public Double totBalancePerson(String pNbr){
         Double sum = 0.0;
         for(Person p : persons){

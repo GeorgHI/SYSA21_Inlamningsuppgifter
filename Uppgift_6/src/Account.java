@@ -3,10 +3,7 @@ public class Account {
     private Double balance;
     private Person owner;
 
-    public Account (){
-
-    }
-
+    public Account (){ }
 
     public Person getOwner() {
         return owner;
